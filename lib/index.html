@@ -24,6 +24,40 @@
 	  <i>http://pagetitle.nodester.net/?uri=</i><input id="uri" value="http://www.strx.it" style="width:300px;"/>
 	  <a id="gettitle" href="#">Get Title</a>
 	  <br/><br/>
-	  <span id="result"></span>
+	  <span id="result" style="font-weight:bold;"></span>
+
+	  <br/><br/>
+	  jQuery sample 1:
+	  <pre><code>
+$.ajax(
+  {
+    url:'http://pagetitle.duostack.net',
+    data:{
+      uri:'http://www.strx.it'
+    },
+    dataType:'jsonp',
+    success:function(info){
+      console.log('info:');
+      console.dir(info);
+    }
+  }
+);
+	  </code></pre>
+
+	  <br/><br/>
+	  jQuery sample 2:
+	  <pre><code>
+$.getJSON(
+  'http://pagetitle.duostack.net?callback=?',
+  {
+    uri:'http://www.strx.it'
+  },
+  function(info){
+    console.log('info:');
+    console.dir(info);
+  }
+);
+	  </code></pre>
+
   </body>
 </html>
