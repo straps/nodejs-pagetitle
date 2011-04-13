@@ -20,19 +20,26 @@ var phpjs = require('./lib/phpjs'),
 })();
 
 app.get('/',function(req,res){
-	var uri=req.param('uri');
+	var uri=req.param('uri'), callback=req.param('callback');
 	if (uri){
+		var onDataReady=function(data){
+			if (callback){
+				res.send(callback+'('+JSON.stringify(data)+')');
+			}else{
+				res.send(data);
+			}
+		};
 		rediscli.get(uri,function(err,title){
 			if (title){
-				res.send({uri:uri, title:title});
+				onDataReady({uri:uri, title:title});
 			}else{
 				pagetitle(uri,function(err,title){
 					if (!err){
 						title=phpjs.html_entity_decode(title);
-						res.send({uri:uri, title:title});
+						onDataReady({uri:uri, title:title});
 						rediscli.setex(uri, 86400, title);
 					}else{
-						res.send({uri:uri, error:err.message});
+						onDataReady({uri:uri, error:err.message});
 					}
 				});
 			}
