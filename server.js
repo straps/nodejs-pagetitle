@@ -21,6 +21,9 @@ var phpjs = require('./lib/phpjs'),
 
 app.get('/',function(req,res){
 	var uri=req.param('uri'), callback=req.param('callback');
+
+	console.log('Request arrived, uri='+uri);
+
 	if (uri){
 		var onDataReady=function(data){
 			if (callback){
