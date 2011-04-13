@@ -27,7 +27,6 @@ app.get('/',function(req,res){
 	if (uri){
 		var onDataReady=function(data){
 			if (callback){
-				//res.send(data);
 				res.send(callback+'('+JSON.stringify(data)+')');
 			}else{
 				res.send(data);
