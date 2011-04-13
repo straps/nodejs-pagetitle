@@ -18,10 +18,11 @@
 		});
 	</script>
   </head>
-  <body>
+  <body style="font-family: sans-serif;">
 	  PageTitle is a simple WebService that provides a RESTful api for
 	  retrieving page title from the URL, see example below<br>
-	  <i>http://pagetitle.nodester.net/?uri=</i><input id="uri" value="http://www.strx.it" style="width:300px;"/>
+	  <i>http://pagetitle.nodester.net/?uri=</i><input id="uri" value="http://www.strx.it" style="width:300px; border: 1px dashed #ccc; font-weight:bold; font-size:1.2em;"/>
+	  <br/><br/>
 	  <a id="gettitle" href="#">Get Title</a>
 	  <br/><br/>
 	  <span id="result" style="font-weight:bold;"></span>
@@ -48,8 +49,6 @@ $.ajax(
 	  </div>
 
 	  <div style="float:left">
-
-	  
 	  jQuery sample 2:
 	  <pre><code>
 $.getJSON(
