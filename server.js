@@ -30,7 +30,7 @@ app.get('/',function(req,res){
 					if (!err){
 						title=phpjs.html_entity_decode(title);
 						res.send({uri:uri, title:title});
-						rediscli.setex(uri, 3600, title);
+						rediscli.setex(uri, 86400, title);
 					}else{
 						res.send({uri:uri, error:err.message});
 					}
@@ -38,10 +38,7 @@ app.get('/',function(req,res){
 			}
 		});
 	}else{
-		res.send({
-			uri:uri,
-			error:'uri not passed'
-		});
+		res.sendfile(__dirname+'/lib/index.html');
 	}
 });
 app.listen(3000);
