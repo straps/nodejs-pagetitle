@@ -13,7 +13,7 @@ var phpjs = require('./lib/phpjs'),
 	rediscli = redis.createClient(db_uri.port, db_uri.hostname);
 
 	if (process.env['DUOSTACK_DB_REDIS']){
-		client.auth(db_pwd, function () {
+		rediscli.auth(db_pwd, function () {
 			console.log('Redis authenticated');
 		});
 	}
