@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "repository": {},
   "directories": {
-    "lib": ""
+    "lib": "lib"
   },
   "engines": {
     "node": "*"
