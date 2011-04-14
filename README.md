@@ -1,1 +1,1 @@
-Usage Instructions on http://pagetitle.duostack.net
+Usage Instructions on [pagetitle.duostack.net](http://pagetitle.duostack.net)
